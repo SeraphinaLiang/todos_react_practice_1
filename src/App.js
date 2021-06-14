@@ -16,6 +16,7 @@ export default class App extends Component {
         ]
     }
 
+    // 箭头函数+赋值语句 ：1. 函数内部this指向  2. 使函数成为实例对象上的函数
     addTodo = (Obj) => {
         const {todos} = this.state
         const newTodos = [Obj, ...todos]

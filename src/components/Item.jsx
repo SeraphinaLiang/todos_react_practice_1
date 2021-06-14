@@ -8,18 +8,22 @@ export default class Item extends Component {
 
     state = {mouse: false}
 
+    // 调用 this.handleMouse(true)，返回一个函数
     handleMouse = (flag) => {
         return () => {
             this.setState({mouse: flag})
         }
     }
 
+    // 调用 this.handleCheck(id) ，返回一个函数
+    // 柯里化函数，先接收id，再接收event
     handleCheck = (id) => {
         return (event) => {
             this.props.updateTodo(id, event.target.checked)
         }
     }
 
+    //调用 () => this.handleDelete(id)，返回 handleDelete 函数本身
     handleDelete = (id) => {
         if (window.confirm('are you sure ??')) {
             this.props.deleteTodo(id)
